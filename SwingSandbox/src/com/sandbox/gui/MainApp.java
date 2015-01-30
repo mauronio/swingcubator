@@ -42,7 +42,7 @@ public class MainApp {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 1200, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -68,6 +68,12 @@ public class MainApp {
 		ifEditor.setResizable(true);
 		desktopPane.add(ifEditor);
 		ifEditor.setVisible(true);
+
+		IfMultiEditor ifMultiEditor = new IfMultiEditor();
+		//ifMultiEditor.setBounds(171, 73, 189, 72);
+		ifMultiEditor.setResizable(true);
+		desktopPane.add(ifMultiEditor);
+		ifMultiEditor.setVisible(true);
 
 	}
 }
