@@ -14,6 +14,8 @@ import javax.swing.JToolBar;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTabbedPane;
 
 public class IfMultiEditor extends JInternalFrame {
 	private JTextField textField;
@@ -78,9 +80,20 @@ public class IfMultiEditor extends JInternalFrame {
 		panel_1.add(textField, BorderLayout.CENTER);
 		textField.setColumns(10);
 		
+		JPanel panel_2 = new JPanel();
+		panel_1.add(panel_2, BorderLayout.EAST);
+		
 		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setHorizontalAlignment(SwingConstants.RIGHT);
-		panel_1.add(btnNewButton, BorderLayout.EAST);
+		panel_2.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("");
+		panel_2.add(lblNewLabel);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		panel.add(tabbedPane, BorderLayout.CENTER);
+		
+		JPanel panel_3 = new JPanel();
+		tabbedPane.addTab("Default", null, panel_3, null);
 
 	}
 }
