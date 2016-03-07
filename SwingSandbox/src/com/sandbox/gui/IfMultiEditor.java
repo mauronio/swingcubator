@@ -7,15 +7,25 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JSplitPane;
 import java.awt.BorderLayout;
+import java.awt.Color;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import java.awt.Component;
+import java.awt.FlowLayout;
 
 public class IfMultiEditor extends JInternalFrame {
 	private JTextField textField;
@@ -93,7 +103,35 @@ public class IfMultiEditor extends JInternalFrame {
 		panel.add(tabbedPane, BorderLayout.CENTER);
 		
 		JPanel panel_3 = new JPanel();
-		tabbedPane.addTab("Default", null, panel_3, null);
+		FlowLayout flowLayout = (FlowLayout) panel_3.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
+		tabbedPane.addTab("Default",  null, panel_3, null);
+
+		JTextPane textArea = new JTextPane();
+		textArea.setEditable(false);
+		panel_3.add(textArea, BorderLayout.NORTH);
+		textArea.setAlignmentX(Component.LEFT_ALIGNMENT);
+		textArea.setAlignmentY(TOP_ALIGNMENT);
+		
+		StyledDocument sd = textArea.getStyledDocument();
+				
+		SimpleAttributeSet keyWord = new SimpleAttributeSet();
+		StyleConstants.setForeground(keyWord, Color.RED);
+		StyleConstants.setBackground(keyWord, Color.YELLOW);
+		StyleConstants.setBold(keyWord, true);
+		
+		try {
+			sd.insertString(0, "Texto uno", null);
+			sd.insertString(sd.getLength(), "\n", null);
+			sd.insertString(sd.getLength(), "Texto dos", keyWord);
+		} catch (BadLocationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		JPanel panel_4 = new JPanel();
+		tabbedPane.addTab("Default2", null, panel_4, null);
 
 	}
 }

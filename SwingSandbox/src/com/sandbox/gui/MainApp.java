@@ -79,13 +79,13 @@ public class MainApp {
 		//internalFrame.setVisible(true);
 
 		IfEditor ifEditor = new IfEditor();
-		ifEditor.setBounds(229, 23, 189, 72);
+		ifEditor.setBounds(176, 25, 189, 72);
 		ifEditor.setResizable(true);
 		desktopPane.add(ifEditor);
 		ifEditor.setVisible(true);
 
 		IfMultiEditor ifMultiEditor = new IfMultiEditor();
-		ifMultiEditor.setLocation(53, 70);
+		ifMultiEditor.setLocation(35, 106);
 		//ifMultiEditor.setBounds(171, 73, 189, 72);
 		ifMultiEditor.setResizable(true);
 		desktopPane.add(ifMultiEditor);
@@ -103,7 +103,7 @@ public class MainApp {
 					"JPG & GIF Images", "jpg", "gif");
 			chooser.setFileFilter(filter);
 			chooser.setCurrentDirectory(new File("c:\\"));
-			int returnVal = chooser.showOpenDialog(frame);
+			int returnVal = chooser.showOpenDialog(null);
 			if(returnVal == JFileChooser.APPROVE_OPTION) {
 				System.out.println("You chose to open this file: " +
 						chooser.getSelectedFile().getName());
